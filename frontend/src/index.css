@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+.dark {
+  --color-background: 9 13 22;      /* #090D16 */
+  --color-surface-50: 21 29 47;     /* #151D2F */
+  --color-surface-100: 17 23 38;    /* #111726 */
+  --color-surface-200: 13 19 31;    /* #0D131F */
+  --color-surface-300: 10 14 24;    /* #0A0E18 */
+  --color-border: 30 41 59;         /* #1E293B */
+
+  --scrollbar-track: rgba(15, 23, 42, 0.6);
+  --scrollbar-thumb: #334155;
+  --scrollbar-thumb-hover: #475569;
+}
+
+.light {
+  --color-background: 248 250 252;  /* #F8FAFC */
+  --color-surface-50: 255 255 255;  /* #FFFFFF */
+  --color-surface-100: 255 255 255; /* #FFFFFF */
+  --color-surface-200: 241 245 249; /* #F1F5F9 */
+  --color-surface-300: 226 232 240; /* #E2E8F0 */
+  --color-border: 226 232 240;      /* #E2E8F0 */
+
+  --scrollbar-track: #F1F5F9;
+  --scrollbar-thumb: #CBD5E1;
+  --scrollbar-thumb-hover: #94A3B8;
+}
+
+@layer base {
+  body {
+    background-color: rgb(var(--color-background));
+    @apply font-sans antialiased;
+  }
+}
+
+.dark body {
+  color: #F8FAFC;
+  background-color: #090D16;
+}
+
+.light body {
+  color: #0F172A;
+  background-color: #F8FAFC;
+}
+
+/* Glassmorphism & Surfaces */
+.dark .glass-panel {
+  background: rgba(17, 23, 38, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-card {
+  background: rgba(21, 29, 47, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dark .glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 24px -8px rgba(99, 102, 241, 0.15);
+}
+
+.light .glass-card {
+  background: #FFFFFF;
+  backdrop-filter: blur(12px);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+}
+
+.light .glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 8px 20px -6px rgba(99, 102, 241, 0.12);
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Subtle glow accents */
+.glow-primary {
+  box-shadow: 0 0 20px -4px rgba(99, 102, 241, 0.4);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px -4px rgba(16, 185, 129, 0.35);
+}
